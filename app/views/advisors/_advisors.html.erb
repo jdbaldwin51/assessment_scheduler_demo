@@ -1,0 +1,24 @@
+<div class="flex flex-col h-screen">
+    <div class="flex-grow overflow-auto">
+      <table class="relative w-full border">
+        <thead>
+          <tr>
+            <th class="sticky top-0 px-6 py-3 text-white bg-blue-300">Name</th>
+            <th class="sticky top-0 px-6 py-3 text-white bg-blue-300">Email</th>
+            <th class="sticky top-0 px-6 py-3 text-white bg-blue-300">Invitation Code</th>
+          
+          </tr>
+        </thead>
+        <tbody class="divide-y bg-blue-100">
+
+  <% @advisors.each do |advisor| %>
+          <tr>
+            <td class="px-6 py-4 text-center"><%= link_to advisor.name, advisor_path(advisor.id) %></td>
+            <td class="px-6 py-4 text-center"><%= advisor.email %></td>
+            <td class="px-6 py-4 text-center"><%= advisor.invitation_code %></td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>

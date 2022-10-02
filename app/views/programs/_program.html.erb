@@ -1,0 +1,27 @@
+<div id="<%= dom_id program %>">
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Name:</strong>
+    <%= program.name %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Minimum sle:</strong>
+    <%= program.minimum_sle %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Minimum hesi:</strong>
+    <%= program.minimum_hesi %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Minimum hesi section:</strong>
+    <%= program.minimum_hesi_section %>
+  </p>
+
+  <% if action_name != "show" %>
+    <%= link_to "Show this program", program, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to 'Edit this program', edit_program_path(program), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+    <hr class="mt-6">
+  <% end %>
+</div>

@@ -1,0 +1,28 @@
+<!-- component --> 
+
+<div class="flex flex-col h-screen">
+    <div class="flex-grow overflow-auto">
+      <table class="relative w-full border">
+        <thead>
+          <tr>
+            <th class="sticky top-0 px-6 py-3 text-white bg-blue-600">Program
+              name</th>
+            <th class="sticky top-0 px-6 py-3 text-white bg-blue-600">Minimum SLE Score</th>
+            <th class="sticky top-0 px-6 py-3 text-white bg-blue-600">Minimum Hesi Score</th>
+            <th class="sticky top-0 px-6 py-3 text-white bg-blue-600">Minimum Hesi Sectional Score</th>
+          
+          </tr>
+        </thead>
+        <tbody class="divide-y bg-blue-100">
+
+  <% @programs.each do |program| %>
+          <tr>
+            <td class="px-6 py-4 text-center"><%= program.name %></td>
+            <td class="px-6 py-4 text-center"><%= program.minimum_sle %></td>
+            <td class="px-6 py-4 text-center"><%= program.minimum_hesi %></td>
+            <td class="px-6 py-4 text-center"><%= program.minimum_hesi_section %></td> </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>

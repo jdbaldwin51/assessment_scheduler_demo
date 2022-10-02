@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  minimum_sle: 1
+  minimum_hesi: 1
+  minimum_hesi_section: 1
+
+two:
+  name: MyString
+  minimum_sle: 1
+  minimum_hesi: 1
+  minimum_hesi_section: 1

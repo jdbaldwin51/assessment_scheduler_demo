@@ -1,0 +1,34 @@
+<!-- component -->
+<div class="flex flex-col h-screen">
+    <div class="flex-grow overflow-auto">
+      <table class="relative w-full border">
+        <thead>
+          <tr>
+            <th class="sticky top-0 px-6 py-3 text-white bg-blue-300">Student name</th>
+            <th class="sticky top-0 px-6 py-3 text-white bg-blue-300">Advisor</th>
+            <th class="sticky top-0 px-6 py-3 text-white bg-blue-300">Program</th>
+            <th class="sticky top-0 px-6 py-3 text-white bg-blue-300">Wonderlic Score</th>
+            <th class="sticky top-0 px-6 py-3 text-white bg-blue-300">Phone Number</th>
+            <th class="sticky top-0 px-6 py-3 text-white bg-blue-300">Hesi Date</th>
+            <th class="sticky top-0 px-6 py-3 text-white bg-blue-300">Hesi Time</th>
+            <th class="sticky top-0 px-6 py-3 text-white bg-blue-300"></th>
+          </tr>
+        </thead>
+        <tbody class="divide-y bg-blue-100">
+
+  <% @students.each do |student| %>
+          <tr>
+            <td class="px-6 py-4 text-center"><%= student.name %></td>
+            <td class="px-6 py-4 text-center"><%= student.advisor.name %></td>
+            <td class="px-6 py-4 text-center"><%= student.program.name %></td>
+            <td class="px-6 py-4 text-center"><%= student.sle %></td>
+            <td class="px-6 py-4 text-center"><%= student.phone %></td>
+            <td class="px-6 py-4 text-center"><%= student.attempt_number %></td>
+            <td class="px-6 py-4 text-center"><%= student.hesi_date %></td>
+            <td class="px-6 py-4 text-center"><%= Program.hesi_times.keys[student.hesi_time] %></td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
