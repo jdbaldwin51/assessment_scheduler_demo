@@ -42,7 +42,7 @@
 
   <p class="my-5">
     <strong class="block font-medium mb-1">Hesi time:</strong>
-    <%= student.hesi_time %>
+    <%= Program.hesi_times.keys[student.hesi_time] %>
   </p>
 
   <% if action_name != "show" %>

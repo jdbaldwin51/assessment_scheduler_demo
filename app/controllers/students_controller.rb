@@ -4,7 +4,11 @@ class StudentsController < ApplicationController
 
   # GET /students or /students.json
   def index
-    @students = Student.all.order(:hesi_date)
+    if params[:query].present?
+      @students = Student.where("name LIKE ?", "#{params[:query]}%")
+    else
+      @students = Student.all.order(:hesi_date)
+    end
   end
 
   # GET /students/1 or /students/1.json
