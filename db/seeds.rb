@@ -55,7 +55,7 @@ Student.create!( name: "Monica Gellar", program_id: 3, start_date: 0, advisor_id
 Student.create!( name: "Beatrice Espinoza", program_id: 2, start_date: 0, advisor_id: 4, sle: 26, phone: "913-555-6783", attempt_number: 0, hesi_date:"2022-10-29", hesi_time: 1 )
 Student.create!( name: "Whilemina Sparks", program_id: 9, start_date: 0, advisor_id: 1, sle: 18, phone: "913-555-7813", attempt_number: 0, hesi_date:"2022-10-29", hesi_time: 0 )  
 Student.create!( name: "Cheryl Kerr", program_id: 1, start_date: 0, advisor_id:1, sle: 24, phone: "913-555-6712", attempt_number: 0, hesi_date:  "2022-10-29", hesi_time: 0 )
-Student.create!( name: "nelle rocha", program_id: 8, start_date: 0, advisor_id:1, sle: 25, phone: "913-555-2313", attempt_number: 0, hesi_date:  "2022-10-29", hesi_time: 1 )
+Student.create!( name: "Nelle Rocha", program_id: 8, start_date: 0, advisor_id:1, sle: 25, phone: "913-555-2313", attempt_number: 0, hesi_date:  "2022-10-29", hesi_time: 0 )
 Student.create!( name: "Dana Chandler", program_id: 1, start_date: 0, advisor_id:7, sle: 22, phone:  "913-555-0098", attempt_number: 0, hesi_date:  "2022-10-29", hesi_time: 0 )
 Student.create!( name: "Sacha Becker", program_id: 4, start_date: 0, advisor_id:1, sle: 23, phone: "913-555-6783", attempt_number: 0, hesi_date:  "2022-10-29", hesi_time: 0 )
 Student.create!( name: "Dawn Hull", program_id: 1, start_date: 0, advisor_id:5, sle: 24, phone: "913-555-4567", attempt_number: 0, hesi_date:  "2022-10-29", hesi_time: 0 )

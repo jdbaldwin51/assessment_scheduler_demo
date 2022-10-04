@@ -5,7 +5,7 @@ class StudentsController < ApplicationController
   # GET /students or /students.json
   def index
     if params[:query].present?
-      @students = Student.where("name LIKE ?", "#{params[:query]}%")
+      @students = Student.where("name iLIKE ?", "#{params[:query]}%")
     else
       @students = Student.all.order(:hesi_date)
     end
@@ -79,8 +79,9 @@ class StudentsController < ApplicationController
 
     def ensure_no_more_than_10_testers
       testers = Student.where(hesi_date: student_params[:hesi_date], hesi_time: student_params[:hesi_time])
-      raise "That Testing Time is already full" if testers.size >= 10
-      redirect_to new_student_path, notice: 'That Hesi time is already full'
+      unless testers.size < 10
+        redirect_to new_student_path, notice: 'That Hesi time is already full'
+      end
     end
 
 end

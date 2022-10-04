@@ -1,4 +1,3 @@
-
 <div id="<%= dom_id student %>">
   <p class="my-5">
     <strong class="block font-medium mb-1">Name:</strong>
@@ -6,43 +5,43 @@
   </p>
 
   <p class="my-5">
-    <strong class="block font-medium mb-1">Program:</strong>
+    <strong class="inline-block  font-medium mb-1">Program:</strong>
     <%= student.program_id %>
   </p>
 
   <p class="my-5">
-    <strong class="block font-medium mb-1">Start date:</strong>
+    <strong class="inline-block font-medium mb-1">Start date:</strong>
     <%= student.start_date %>
   </p>
 
   <p class="my-5">
-    <strong class="block font-medium mb-1">Advisor:</strong>
+    <strong class="inline-block font-medium mb-1">Advisor:</strong>
     <%= student.advisor_id %>
   </p>
 
   <p class="my-5">
-    <strong class="block font-medium mb-1">Sle:</strong>
+    <strong class="inline-block font-medium mb-1">Sle:</strong>
     <%= student.sle %>
   </p>
 
   <p class="my-5">
-    <strong class="block font-medium mb-1">Phone:</strong>
+    <strong class="inline-block font-medium mb-1">Phone:</strong>
     <%= student.phone %>
   </p>
 
   <p class="my-5">
-    <strong class="block font-medium mb-1">Attempt number:</strong>
+    <strong class="inline-block font-medium mb-1">Attempt number:</strong>
     <%= student.attempt_number %>
   </p>
 
   <p class="my-5">
-    <strong class="block font-medium mb-1">Hesi date:</strong>
+    <strong class="inline-block font-medium mb-1">Hesi date:</strong>
     <%= student.hesi_date %>
   </p>
 
   <p class="my-5">
-    <strong class="block font-medium mb-1">Hesi time:</strong>
-    <%= Program.hesi_times.keys[student.hesi_time] %>
+    <strong class="inline-block font-medium mb-1">Hesi time:</strong>
+    <%= Hesi.test_times.keys[student.hesi_time] %>
   </p>
 
   <% if action_name != "show" %>
