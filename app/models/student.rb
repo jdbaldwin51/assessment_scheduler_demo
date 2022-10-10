@@ -1,6 +1,7 @@
 class Student < ApplicationRecord
   belongs_to :program
   belongs_to :advisor
+  has_many :hesis
 
   enum attempt_number: {
     "1st attempt" => 0,

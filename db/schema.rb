@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_03_222802) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_08_192826) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -23,8 +23,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_03_222802) do
   end
 
   create_table "hesis", force: :cascade do |t|
+    t.date "date"
+    t.integer "time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["date"], name: "index_hesis_on_date"
+    t.index ["time"], name: "index_hesis_on_time"
   end
 
   create_table "programs", force: :cascade do |t|

@@ -1,7 +1,7 @@
 class HesisController < ApplicationController
   before_action :set_hesi, only: %i[ show edit update destroy ]
-
-  # GET /hesis or /hesis.json
+  before_action :set_students, only: %i[ create show edit update destroy]
+# GET /hesis or /hesis.json
   def index
     @hesis = Hesi.all
   end
@@ -13,6 +13,8 @@ class HesisController < ApplicationController
   # GET /hesis/new
   def new
     @hesi = Hesi.new
+
+    @hesi.students.build
   end
 
   # GET /hesis/1/edit
@@ -60,11 +62,15 @@ class HesisController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_hesi
-      @hesi = Hesi.find(params[:id])
+      @hesi = Hesi.find(:id)
     end
 
     # Only allow a list of trusted parameters through.
     def hesi_params
       params.require(:hesi).permit(:date, :time)
     end
+
+    def set_students
+      @students = Student.where(hesi_date: self.date, hesi_time: self.time )
+    end 
 end

@@ -18,6 +18,7 @@ class StudentsController < ApplicationController
   # GET /students/new
   def new
     @student = Student.new
+    @student.hesis.build
   end
 
   # GET /students/1/edit
@@ -73,14 +74,14 @@ class StudentsController < ApplicationController
       params.require(:student).permit(:name, :program_id, :start_date, :advisor_id, :sle, :phone, :attempt_number, :hesi_date, :hesi_time)
     end
 
-    def find_hesi_date
-    
+    def set_hesi
+      @hesi = Hesi.where(date: student_params[:hesi_date], time: student_params[:hesi_time]) || Hesi.new(student_params[:hesi_date], student_params[:hesi_time])
     end
 
     def ensure_no_more_than_10_testers
       testers = Student.where(hesi_date: student_params[:hesi_date], hesi_time: student_params[:hesi_time])
       unless testers.size < 10
-        redirect_to new_student_path, notice: 'That Hesi time is already full'
+        render :new, status: :unprocessable_entity, notice: "That testing time is already full"
       end
     end
 

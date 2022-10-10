@@ -1,5 +1,6 @@
 class AdvisorsController < ApplicationController
   before_action :set_advisor, only: %i[ show edit update destroy ]
+  # before_action :order_students, only:  :show
 
   # GET /advisors or /advisors.json
   def index
@@ -64,6 +65,9 @@ class AdvisorsController < ApplicationController
       @advisor = Advisor.find(params[:id])
     end
 
+    def order_students
+      self.students.order(:hesi_date)
+    end
     # Only allow a list of trusted parameters through.
     def advisor_params
       params.require(:advisor).permit(:name, :email, :invitation_code)

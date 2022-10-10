@@ -16,12 +16,12 @@
           </tr>
         </thead>
         <tbody class="divide-y bg-blue-100">
-
+<%= cache do %>
   <% @students.each do |student| %>
           <tr>
-            <td class="px-6 py-4 text-center"><%= link_to student.name, student_path(student) %></td>
-            <td class="px-6 py-4 text-center"><%= student.advisor.name %></td>
-            <td class="px-6 py-4 text-center"><%= student.program.name %></td>
+            <td ><%= link_to student.name, student_path(student), class: "px-6 py-4 text-center" %></td>
+            <td ><%= link_to student.advisor.name, advisor_path(student.advisor), class: "px-6 py-4 text-center"%></td>
+            <td ><%= link_to student.program.name, program_path(student.program), class: "px-6 py-4 text-center" %></td>
             <td class="px-6 py-4 text-center"><%= student.sle %></td>
             <td class="px-6 py-4 text-center"><%= student.phone %></td>
             <td class="px-6 py-4 text-center"><%= student.attempt_number %></td>
@@ -32,5 +32,6 @@
         </tbody>
       </table>
     </div>
+    <% end %>
   </div>
 <% end %>

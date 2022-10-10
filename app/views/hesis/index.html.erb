@@ -4,11 +4,11 @@
   <% end %>
 
   <div class="flex justify-between items-center">
-    <h1 class="font-bold text-4xl">Hesis</h1>
+    <h1 class="font-bold text-4xl mb-5 origin-center">Hesi Schedule</h1>
     <%= link_to 'New hesi', new_hesi_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
   </div>
 
   <div id="hesis" class="min-w-full">
-    <%= render @hesis %>
+    <%= render partial: 'pages/dashboard' %>
   </div>
 </div>

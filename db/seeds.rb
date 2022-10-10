@@ -1,61 +1,94 @@
 # This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
 # Examples:
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
-Advisor.delete_all
-ActiveRecord::Base.connection.reset_pk_sequence!('advisors')
-Advisor.create!(name: "Joshua Baldwin", email: "jbaldwin@concorde.edu", invitation_code: 3131046)
-Advisor.create!(name: "Richard Netwal", email: "rnetwal@concorde.edu", invitation_code: 3115131)
-Advisor.create!(name: "Joshua Williams", email: "jwilliams@concorde.edu", invitation_code: 3231083)
-Advisor.create!(name: "Brett Mendez", email: "bmendez@concorde.edu", invitation_code: 3229673)
-Advisor.create!(name: "Stephanie Wirken", email: "swirken@concorde.edu", invitation_code: 3227027)
-Advisor.create!(name: "Osvauldo Luna", email: "oluna@concorde.edu", invitation_code: 3092436)
-Advisor.create!(name: "Chris Scherrer", email: "cscherrer@concorde.edu", invitation_code: 3036489)
-Advisor.create!(name: "Vanessa Fox", email: "vfox@concorde.edu", invitation_code: 3235134)
-Advisor.create!(name: "Katie Nat", email: "knat@concorde.edu", invitation_code: 0000)
-
-
-
-
-Program.delete_all
-ActiveRecord::Base.connection.reset_pk_sequence!('programs')
-Program.create!(name: "BSN", minimum_sle: 22, minimum_hesi: 80, minimum_hesi_section: 70)
-Program.create!(name: "CVS", minimum_sle: 21, minimum_hesi: 75, minimum_hesi_section: 65)
-Program.create!(name: "DMS", minimum_sle: 21, minimum_hesi: 75, minimum_hesi_section: 65)
-Program.create!(name: "DH", minimum_sle: 20, minimum_hesi: 70)
-Program.create!(name: "PN", minimum_sle: 17, minimum_hesi: 70, minimum_hesi_section: 65)
-Program.create!(name: "PN-EW", minimum_sle: 17, minimum_hesi: 70, minimum_hesi_section: 65)
-Program.create!(name: "PTA", minimum_sle: 18, minimum_hesi: 70)
-Program.create!(name: "RT", minimum_sle: 17, minimum_hesi: 70)
-Program.create!(name: "ST", minimum_sle: 17, minimum_hesi: 70)
-
 Student.delete_all
 ActiveRecord::Base.connection.reset_pk_sequence!('students')
-Student.create!(name: "Jane Doe",  program_id: 1, start_date: 2,  advisor_id: 4, sle: 23,phone: "816-555-3025", attempt_number: 0, hesi_date: '2022-10-26', hesi_time: 0)
-Student.create!(name: "Sally Fields",  program_id: 6, start_date: 4, advisor_id: 1, sle: 17, phone: "816-555-3025", attempt_number: 0, hesi_date: '2022-10-28', hesi_time: 0)
-Student.create!(name: "Tom Brady", program_id: 2, start_date: 4, advisor_id: 5,  sle: 25, phone: "816-555-3025",  attempt_number: 0, hesi_date: '2022-10-15', hesi_time: 0)
-Student.create!(name: "Ashley Alcatraz", program_id: 3, start_date: 4,  advisor_id: 2, sle: 23, phone: "816-555-3025", attempt_number: 0, hesi_date: '2022-10-14', hesi_time: 0)
-Student.create!(name: "Patrick Mahomes", program_id: 4, start_date: 4,  advisor_id: 3,sle: 24, phone: "816-555-3025",  attempt_number: 0, hesi_date: '2022-10-17', hesi_time: 1)
-Student.create!(name: "Selma Hayek", program_id: 4, start_date: 4, advisor_id: 7, sle: 23, phone: "816-555-3025", attempt_number: 0, hesi_date: '2022-10-14', hesi_time: 0)
-Student.create!(name: "LaQuisha Brown", program_id: 5, start_date: 4, advisor_id: 4, sle: 21, phone: "816-555-3025", attempt_number: 0, hesi_date: '2022-10-18', hesi_time: 3)
-Student.create!(name: "Shanequa Allen", program_id: 9, start_date: 4, advisor_id: 5, sle: 29, phone: "816-555-3025", attempt_number: 0, hesi_date: '2022-10-25', hesi_time: 3)
-Student.create!(name: "Taylor Moore", program_id: 7, start_date: 4, advisor_id: 6, sle: 27, phone: "816-555-3025", attempt_number: 0, hesi_date: '2022-10-25', hesi_time: 3)
-Student.create!(name: "Elizabeth Scott", program_id: 8, start_date: 4, advisor_id: 1, sle: 17, phone: "816-555-3025", attempt_number: 0, hesi_date: '2022-10-26', hesi_time: 2)
-Student.create!(name: "Allyson Peters", program_id: 8, start_date: 4, advisor_id: 2, sle: 18, phone: "816-555-3025", attempt_number: 0, hesi_date: '2022-10-13', hesi_time: 0)
-Student.create!(name: "Fernanda Gonzalez", program_id: 6, start_date: 4, advisor_id: 3, sle: 19, phone: "816-555-3025", attempt_number: 0, hesi_date: '2022-10-25', hesi_time: 3)
-Student.create!(name: "Ashley Judd", program_id: 8, start_date: 4, advisor_id: 3, sle: 27, phone: "816-555-3025", attempt_number: 0, hesi_date: '2022-10-24', hesi_time: 1)
-Student.create!(name: "Tedd Lasso", program_id: 2, advisor_id: 7, start_date: 4, sle: 21, phone: "816-555-3025", attempt_number: 0, hesi_date: '2022-10-25', hesi_time: 3)
-Student.create!(name: "Thurston Howell", program_id: 4, start_date: 4, advisor_id: 5, sle: 20, phone: "816-555-3025", attempt_number: 0, hesi_date: '2022-10-25', hesi_time: 3)
-Student.create!( name: "Mary Poppins", program_id: 4, start_date: 0, advisor_id:  1, sle: 25, phone: "816-555-2033", attempt_number: 0, hesi_date:  "2022-10-29", hesi_time: 1 )
-Student.create!( name: "Dorothy Gale", program_id: 7, start_date: 0, advisor_id:  1, sle: 21, phone: "816-555-3344", attempt_number: 0, hesi_date:  "2022-10-29", hesi_time: 0 )
-Student.create!( name: "Monica Gellar", program_id: 3, start_date: 0, advisor_id: 6, sle: 23, phone: "913-555-3344", attempt_number: 0, hesi_date:"2022-10-29", hesi_time: 2 )
-Student.create!( name: "Beatrice Espinoza", program_id: 2, start_date: 0, advisor_id: 4, sle: 26, phone: "913-555-6783", attempt_number: 0, hesi_date:"2022-10-29", hesi_time: 1 )
-Student.create!( name: "Whilemina Sparks", program_id: 9, start_date: 0, advisor_id: 1, sle: 18, phone: "913-555-7813", attempt_number: 0, hesi_date:"2022-10-29", hesi_time: 0 )  
-Student.create!( name: "Cheryl Kerr", program_id: 1, start_date: 0, advisor_id:1, sle: 24, phone: "913-555-6712", attempt_number: 0, hesi_date:  "2022-10-29", hesi_time: 0 )
-Student.create!( name: "Nelle Rocha", program_id: 8, start_date: 0, advisor_id:1, sle: 25, phone: "913-555-2313", attempt_number: 0, hesi_date:  "2022-10-29", hesi_time: 0 )
-Student.create!( name: "Dana Chandler", program_id: 1, start_date: 0, advisor_id:7, sle: 22, phone:  "913-555-0098", attempt_number: 0, hesi_date:  "2022-10-29", hesi_time: 0 )
-Student.create!( name: "Sacha Becker", program_id: 4, start_date: 0, advisor_id:1, sle: 23, phone: "913-555-6783", attempt_number: 0, hesi_date:  "2022-10-29", hesi_time: 0 )
-Student.create!( name: "Dawn Hull", program_id: 1, start_date: 0, advisor_id:5, sle: 24, phone: "913-555-4567", attempt_number: 0, hesi_date:  "2022-10-29", hesi_time: 0 )
+
+
+class StudentSeed
+  attr_reader :name, :program, :start_date, :advisor, :sle, :phone, :attempt_number, :hesi_date, :hesi_time
+
+  def initialize(name)
+    @dates = []
+    @name = name
+    @sle = set_sle
+    @program = set_program
+    @start_date = rand(0..6)
+    @advisor = rand(1..9)
+    @phone = set_phone
+    @attempt_number = rand(0..6)
+    @hesi_date = set_date
+    @hesi_time = times_for_wday(@hesi_date)
+   end
+
+
+
+  def set_sle
+    rand(17..28)
+  end
+
+  def set_program
+    case @sle
+    when 17
+      [5,6,8,9].sample
+    when 18..19
+      [5,6,7,8,9].sample
+    when 20
+      4
+    when 21
+      rand(2..3)
+    else
+      rand(1..9)
+    end
+  end
+
+  def set_phone
+    "#{['816', '913','660','785'].sample}-555-#{rand(1000..9999)}"
+  end
+
+  def set_date
+    date = Date.today + rand(0..20)
+    @dates.push date
+    unless @dates.count(date) < 10
+      date += 1
+    else
+      date = date
+    end
+
+    if date.sunday?
+      date += 1
+      return date
+    else
+      return date
+    end
+  end
+
+  def times_for_wday(date)
+    if date.monday?
+      1
+    elsif date.tuesday?
+      [0,3].sample
+    elsif date.wednesday?
+      [0,2].sample
+    elsif date.thursday?
+      [0,2].sample
+    elsif date.friday? || date.saturday?
+      0
+    end
+  end
+end
+
+
+
+
+  def names
+    ["Liam King", "Noah Thomas", "Oliver Robinson", "Elijah Walker", "William Powell", "James Cook", "Benjamin Nelson", "Lucas Hughes", "Henry Brooks", "Alexander Murphy", "Mason Lopez", "Michael Watson", "Ethan Perez", "Daniel Jones", "Jacob Ward", "Logan Morris", "Jackson Robinson", "Levi Perez", "Sebastian Gonzales", "Mateo Martinez", "Jack Adams", "Owen Taylor", "Theodore Morris", "Aiden Collins", "Samuel Foster", "Joseph Young", "John Clark", "David Morris", "Wyatt Roberts", "Matthew Edwards", "Luke Simmons", "Asher Russell", "Carter Clark", "Julian Ramirez", "Grayson Morgan", "Leo Henderson", "Jayden Russell", "Gabriel Bryant", "Isaac Morgan", "Lincoln Sanders", "Anthony Torres", "Hudson Thomas", "Dylan Turner", "Ezra Perry", "Thomas Campbell", "Charles Ross", "Christopher Simmons", "Jaxon Parker", "Maverick Hill", "Josiah Murphy", "Isaiah Jones", "Andrew Rivera", "Elias James", "Joshua Flores", "Nathan Alexander", "Caleb Thomas", "Ryan Martinez", "Adrian Walker", "Miles Murphy", "Eli Baker", "Nolan Ward", "Thurston Howell", "Christian Henderson", "Aaron Edwards", "Cameron Jenkins", "Ezekiel Jenkins", "Colton Butler", "Luca Taylor", "Landon Garcia", "Hunter Wood", "Jonathan Hill", "Santiago Walker", "Axel Evans", "Easton Jenkins", "Cooper Cooper", "Jeremiah Flores", "Angel Harris", "Roman King", "Connor Diaz", "Jameson Ramirez", "Robert Gonzales", "Greyson Jones", "Jordan Wilson", "Ian Henderson", "Carson Rogers", "Jaxson Johnson", "Leonardo Howard", "Nicholas Thomas", "Dominic Allen", "Austin Roberts", "Everett Powell", "Brooks Cook", "Xavier Jenkins", "Kai Bell", "Jose Gonzalez", "Parker Sanchez", "Adam Perry", "Jace Brooks", "Wesley Hernandez", "Kayden Griffin", "Silas Wright", "Bennett Stewart", "Declan Diaz", "Waylon Davis", "Weston Cooper", "Evan Wilson", "Emmett Morgan", "Micah Morris", "Ryder Evans", "Beau Hill", "Damian Wood", "Brayden Diaz", "Gael Anderson", "Rowan Wood", "Harrison Jones", "Bryson Evans", "Sawyer Green", "Amir Brooks", "Kingston Ross", "Jason Harris", "Giovanni Murphy", "Vincent Gray", "Ayden Nelson", "Chase Robinson", "Myles Thompson", "Diego Lee", "Nathaniel Wright", "Legend Anderson", "Jonah Hayes", "River Robinson", "Tyler Ward", "Cole Bell", "Braxton Phillips", "George Allen", "Milo Martinez", "Zachary Wright", "Ashton Brooks", "Luis Mitchell", "Jasper Gonzalez", "Kaiden Washington", "Adriel Murphy", "Gavin Price", "Bentley Lewis", "Calvin Taylor", "Zion Rogers", "Juan Brown", "Maxwell Ward", "Max Anderson", "Ryker Torres", "Carlos Hall", "Emmanuel Sanchez", "Jayce Bell", "Lorenzo Wilson", "Ivan Jenkins", "Jude Kelly", "August Torres", "Kevin Rodriguez", "Malachi Gonzales","Jane Doe", "Elliott Johnson", "Rhett Garcia", "Archer Cook", "Karter Peterson", "Arthur Hall", "Luka Phillips", "Elliot Martinez", "Thiago Powell", "Brandon Brooks", "Camden Bryant", "Justin Thomas", "Jesus Cook", "Maddox Watson", "King Reed", "Theo Peterson", "Enzo Rodriguez", "Matteo Price", "Emiliano Ramirez", "Dean Torres", "Hayden Hayes", "Finn Jones", "Brody Phillips", "Antonio Diaz", "Abel Smith", "Alex Bennett", "Tristan Jones", "Graham Butler", "Zayden Patterson", "Judah Kelly", "Xander Baker", "Miguel Lopez", "Atlas Davis", "Messiah King", "Barrett Lewis", "Tucker Cox", "Timothy Edwards", "Alan Davis", "Edward Ward", "Leon Mitchell", "Dawson Thomas", "Eric Gray", "Ace Cooper", "Victor Lee", "Abraham Young", "Nicolas Miller", "Jesse Lopez", "Charlie Moore", "Patrick Jackson", "Walker Kelly", "Joel Russell", "Richard Morris", "Beckett Martinez", "Blake Gonzales", "Alejandro Thompson", "Avery Walker", "Grant Cooper", "Peter Scott", "Oscar Washington", "Matias Morris", "Amari James", "Lukas Rodriguez", "Andres Young", "Arlo Lewis", "Colt Patterson", "Adonis Torres", "Kyrie Johnson", "Steven Bell", "Felix Patterson", "Preston Gonzales", "Marcus Adams", "Holden Barnes", "Emilio Carter", "Remington Cox", "Jeremy Washington", "Kaleb Smith", "Brantley Allen", "Bryce Reed", "Mark Harris", "Knox Johnson", "Israel Lee", "Phoenix Adams", "Kobe Brown", "Nash Edwards", "Griffin Butler", "Caden Alexander", "Kenneth Evans", "Kyler Kelly", "Hayes Phillips", "Jax Perry", "Rafael Griffin", "Beckham Scott", "Javier Sanders", "Maximus Long", "Simon Ward", "Paul Johnson", "Omar Nelson", "Kaden Powell", "Kash Butler", "Lane Cox", "Bryan Garcia", "Riley Nelson", "Zane Garcia", "Louis Alexander", "Aidan Clark", "Paxton Kelly", "Maximiliano Flores", "Karson Griffin", "Cash Patterson", "Cayden Johnson", "Emerson Campbell", "Tobias Brown", "Ronan Kelly", "Brian Parker", "Dallas Long", "Bradley Roberts", "Jorge Johnson", "Walter Richardson", "Josue Perez", "Khalil Mitchell", "Damien Jenkins", "Jett Foster", "Kairo Turner", "Zander Jackson", "Andre Allen", "Cohen Lewis", "Crew Gonzales", "Hendrix Perry", "Colin Brooks", "Chance Foster", "Malakai Barnes", "Clayton Stewart", "Daxton Edwards", "Malcolm Smith", "Lennox Ross", "Martin Diaz", "Jaden Jackson", "Kayson Sanders", "Bodhi Wilson", "Francisco Thompson", "Cody Edwards", "Erick Taylor", "Kameron Hill", "Atticus Young", "Dante Campbell", "Jensen Davis", "Cruz White", "Finley Clark", "Brady Taylor", "Joaquin Thomas", "Anderson Powell", "Gunner Green", "Muhammad Morris", "Zayn Clark", "Derek Clark", "Raymond Harris", "Kyle Gonzalez", "Angelo Johnson", "Reid Gonzales", "Spencer Mitchell", "Nico Price", "Jaylen Edwards", "Jake Bryant", "Prince Parker", "Manuel Sanders", "Ali James", "Gideon Johnson", "Stephen Jackson", "Ellis Thompson", "Orion Edwards", "Rylan Jenkins", "Eduardo Simmons", "Mario Stewart", "Rory Robinson", "Cristian Simmons", "Odin Cook", "Tanner Cook", "Julius Price", "Callum White", "Sean Williams", "Kane Watson", "Ricardo Brown", "Travis Gonzales", "Wade Anderson", "Warren Lee", "Fernando Thompson", "Titus White", "Leonel Mitchell", "Edwin Taylor", "Cairo Brown", "Corbin King", "Dakota Wood", "Ismael Harris", "Colson Moore", "Killian Collins", "Major Cox", "Tate Perry", "Gianni Garcia", "Elian Martinez", "Remy Patterson", "Lawson Peterson", "Niko Peterson", "Nasir Brooks", "Kade Robinson", "Armani Smith", "Ezequiel Scott", "Marshall Rodriguez", "Hector Butler", "Desmond Barnes", "Kason Ramirez", "Garrett Cooper", "Jared Gonzalez", "Cyrus Butler", "Russell Mitchell", "Cesar Gonzalez", "Sarah Lopez", "Tyson Patterson", "Malik Cox", "Donovan Richardson", "Jaxton Cox", "Cade Hall", "Romeo Allen", "Nehemiah Smith", "Sergio Carter", "Iker Adams", "Caiden Jenkins", "Jay Smith", "Pablo Parker", "Devin Morris", "Jeffrey Long", "Otto Sanders", "Kamari Washington", "Ronin Parker", "Johnny Henderson", "Clark Ramirez", "Marco Martin", "Edgar Gray", "Bowen Flores", "Jaiden Johnson", "Grady Thomas", "Zayne Mitchell", "Sullivan Collins", "Jayceon Hayes", "Sterling Griffin", "Andy James", "Conor Butler", "Raiden Walker", "Royal Sanders", "Royce Hayes", "Solomon Garcia", "Trevor Bryant", "Winston Sanchez", "Emanuel Alexander", "Finnegan Alexander", "Pedro Smith", "Luciano Lewis", "Harvey Cooper", "Franklin Walker", "Noel Gonzales", "Troy Ross", "Princeton Carter", "Johnathan Reed", "Erik Evans", "Fabian Rodriguez", "Oakley King", "Rhys Nelson", "Porter Long", "Hugo Peterson", "Frank Price", "Damon Kelly", "Kendrick Rodriguez", "Mathias Collins", "Milan Hughes", "Peyton Scott", "Wilder Wright", "Callan Coleman", "Gregory Phillips", "Seth Hayes", "Matthias Scott", "Briggs Allen", "Ibrahim Roberts", "Roberto Griffin", "Conner Smith", "Quinn Collins", "Kashton Washington", "Sage Torres", "Santino Kelly", "Kolton Brooks", "Alijah Baker", "Dominick Bell", "Zyaire Rodriguez", "Apollo Henderson", "Kylo Anderson", "Reed Thomas", "Philip Adams", "Kian Miller", "Shawn Perry", "Kaison Parker", "Leonidas Bailey", "Ayaan Wood", "Lucca Hall", "Memphis Gray", "Ford White", "Baylor Hill", "Kyson Howard", "Uriel Garcia", "Allen Bell", "Collin Baker", "Ruben Adams", "Archie James", "Dalton Bennett", "Esteban Murphy", "Adan Murphy", "Forrest Young", "Alonzo Adams", "Isaias Murphy", "Leland Barnes", "Jase Gray", "Dax Gray", "Kasen Smith", "Gage Rodriguez", "Kamden Rogers", "Marcos Scott", "Jamison Powell", "Francis Patterson", "Hank Coleman", "Alexis Martin", "Tripp Hall", "Frederick Washington", "Jonas Turner", "Stetson Long", "Cassius Jackson", "Izaiah Evans", "Eden Phillips", "Maximilian Diaz", "Rocco Campbell", "Tatum Long", "Keegan Long", "Aziel Price", "Moses Robinson", "Bruce Lopez", "Lewis Phillips", "Braylen Alexander", "Omari Collins"]
+  end
+  
+
+  names.each do |name|
+    student = StudentSeed.new(name)
+    Student.create!(name: student.name, program_id: student.program, start_date: student.start_date, advisor_id: student.advisor, sle: student.sle, phone: student.phone, attempt_number: student.attempt_number, hesi_date: student.hesi_date, hesi_time: student.hesi_time)
+  end
