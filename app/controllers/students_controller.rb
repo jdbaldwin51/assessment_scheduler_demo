@@ -1,13 +1,13 @@
 class StudentsController < ApplicationController
-  before_action :set_student, only: %i[ show edit update destroy ]
+  before_action :set_student, only: %i[ show create edit update destroy ]
   before_action :ensure_no_more_than_10_testers, only: %i[ create update]
 
   # GET /students or /students.json
   def index
     if params[:query].present?
-      @students = Student.where("name iLIKE ?", "#{params[:query]}%")
+      @students = Student.where("name iLIKE ?", "%#{params[:query]}%")
     else
-      @students = Student.all.order(:hesi_date)
+      @students = Student.all.order(:created_at)
     end
   end
 
@@ -18,7 +18,6 @@ class StudentsController < ApplicationController
   # GET /students/new
   def new
     @student = Student.new
-    @student.hesis.build
   end
 
   # GET /students/1/edit
@@ -66,7 +65,7 @@ class StudentsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_student
-      @student = Student.find(params[:id])
+      @student = Student.find(params[:phone] && params[:name])
     end
 
     # Only allow a list of trusted parameters through.

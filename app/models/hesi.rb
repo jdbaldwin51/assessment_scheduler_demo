@@ -1,24 +1,31 @@
 class Hesi < ApplicationRecord
 
   has_many :students
-  def testers_for_date(date)
-    @students = Student.where("hesi_date = ?", date)
-  end
-  
-  def self.todays_testers
-    Student.where("hesi_date = ?", Date.today)
-  end
 
-  def self.testers_for(day)
-    Student.where("hesi_date = ?", Date.tomorrow.sunday? ? Date.tomorrow + 1 : Date.tomorrow)
-  end
+  WEEK_DAYS = ['Sunday','Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
 
-  def testers_for_week
-    [method(:todays_testers), method(:tomorrows_testers)]
+  def self.times_for_day
+    {
+      'Monday' => ['10:00am'],
+      'Tuesday' => ['9:00am', '4:00pm'],
+      'Wednesday' => ['9:00am', '1:00pm'],
+      'Thursday' => ['9:00am', '1:00pm'],
+      'Friday' => ['9:00am'],
+      'Saturday' => ['9:00am']
+    }
   end
 
+  def self.day_of_week(date)
+    WEEK_DAYS[date.wday]
+  end
 
+  def self.all_hesi_dates
+    hesi_dates = Student.where(hesi_date: 0.day.ago..Float::INFINITY).distinct.pluck(:hesi_date).sort
+  end
 
+  def self.testers_for_date_and_time(date, time)
+    Student.where(hesi_date: date, hesi_time: time)
+  end
 
 
   enum test_time: {

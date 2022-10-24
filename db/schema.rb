@@ -14,6 +14,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_08_192826) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  # Custom types defined in this database.
+  # Note that some types may not work with other database engines. Be careful if changing database.
+  create_enum "test_times", ["9:00am", "10:00am", "1:00pm", "4:00pm"]
+
   create_table "advisors", force: :cascade do |t|
     t.string "name"
     t.string "email"

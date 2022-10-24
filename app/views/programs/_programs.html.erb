@@ -17,7 +17,7 @@
 
   <% @programs.each do |program| %>
           <tr>
-            <td class="px-6 py-4 text-center"><%= program.name %></td>
+            <td><%= link_to program.name, program_path(program), class: "px-6 py-4 text-center" %></td>
             <td class="px-6 py-4 text-center"><%= program.minimum_sle %></td>
             <td class="px-6 py-4 text-center"><%= program.minimum_hesi %></td>
             <td class="px-6 py-4 text-center"><%= program.minimum_hesi_section %></td> </tr>
