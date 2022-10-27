@@ -4,15 +4,16 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 require_relative "names"
+require "date"
 Student.delete_all
 ActiveRecord::Base.connection.reset_pk_sequence!('students')
 
 
 class StudentSeed
   attr_reader :name, :program, :start_date, :advisor, :sle, :phone, :attempt_number, :hesi_date, :hesi_time
-  @@date = 0
-  @@counter = 0
-  def initialize(name)
+  @@student_count = 0
+
+  def initialize(name,date)
     @name = name
     @sle = rand(17..28)
     @program = set_program
@@ -20,29 +21,17 @@ class StudentSeed
     @advisor = rand(1..9)
     @phone = set_phone
     @attempt_number = rand(0..6)
-    @hesi_date = set_date
+    @hesi_date = set_date(date)
     @hesi_time = times_for_wday(@hesi_date)
-    puts self.class.counter
-    if self.class.counter == 5
-      self.class.date += 1
-      self.class.counter = 0
-    end
+    self.class.student_count += 1
    end
 
-  def self.date
-    @@date
+  def self.student_count
+    @@student_count
   end
 
-  def self.date=(value)
-    @@date = value
-  end
-
-  def self.counter
-    @@counter
-  end
-
-  def self.counter=(value)
-    @@counter = value
+  def self.student_count=(value)
+    @@student_count = value
   end
 
   def set_program
@@ -64,16 +53,14 @@ class StudentSeed
     "#{['816', '913','660','785'].sample}-555-#{rand(1000..9999)}"
   end
 
-  def set_date
-    date = Date.today + self.class.date 
-
+  def set_date(date)
     if date.sunday?
       date += 1
       return date
     else
       return date
     end
-   
+
   end
 
   def times_for_wday(date)
@@ -89,20 +76,48 @@ class StudentSeed
       0
     end
   end
-end
 
 
+  def self.seed_future_students
+    test_date = Date.today
+    prev_testers = 0
+    15.times do |i|
+      limit = [4,5,6,7,8].sample
+
+      current_testers = names[prev_testers..(prev_testers + limit)].map {|name| StudentSeed.new(name, test_date)}
+      prev_testers += limit
 
 
-  
-def seed_future_students(idx1,idx2)
-  names[idx1..idx2].each do |name|
-    student = StudentSeed.new(name)
-    Student.create!(name: student.name, program_id: student.program, start_date: student.start_date, advisor_id: student.advisor, sle: student.sle, phone: student.phone, attempt_number: student.attempt_number, hesi_date: student.hesi_date, hesi_time: student.hesi_time)
-    StudentSeed.counter += 1
+      current_testers.each do |student|
+        Student.create!(name: student.name, program_id: student.program, start_date: student.start_date, advisor_id: student.advisor, sle: student.sle, phone: student.phone, attempt_number: student.attempt_number, hesi_date: student.hesi_date, hesi_time: student.hesi_time)
+
+      end
+      test_date += 1
+
+    end
   end
 
+  def self.seed_past_students
+    test_date = Date.today - 1
+    count = self.student_count + 1
+    15.times do |i|
+      limit = [4,5,6,7,8].sample
+      current_testers = names[count..(count + limit)].map { |name| StudentSeed.new(name, test_date)  }
+
+      current_testers.each do |student|
+        Student.create!(name: student.name, program_id: student.program, start_date: student.start_date, advisor_id: student.advisor, sle: student.sle, phone: student.phone, attempt_number: student.attempt_number, hesi_date: student.hesi_date, hesi_time: student.hesi_time)
+      end
+      test_date -= 1
+
+    end
+  end
 end
 
-seed_students(0,50)
 
+
+
+
+
+
+StudentSeed.seed_future_students
+StudentSeed.seed_past_students

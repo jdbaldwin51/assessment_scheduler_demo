@@ -1,9 +1,12 @@
-<% Hesi.all_hesi_dates.each do |date| %>
-  <h1><strong><%= "#{Hesi::WEEK_DAYS[date.wday]}, #{ date.to_fs(:long_ordinal) }" %></strong></h1>
-  <% Hesi.times_for_day[Hesi::WEEK_DAYS[date.wday]].each do |time| %>
-    <h2><%= time %></h2>
+<% Hesi.future_hesi_dates.each do |date| %>
+  <h1><strong><%= "#{Hesi.day_of_week(date)}, #{ Hesi.date(date) }" %></strong></h1>
+  <% Hesi.times_for_day[Hesi.day_of_week(date)].each do |time| %>
+    <div class="relative flex h-16 items-center justify-between">
+      <h2 class="inline-flex items-center justify-center "><strong><%= time %></strong></h2>
+      <h3 class="clear-right">Count: <%= Hesi.student_count(date, time) %></h3>
+    </div>
 <div class="flex flex-col">
-    <div class="pb-5">
+    <div class="pb-10">
       <table class="relative w-full border">
         <thead>
           <tr>
@@ -26,8 +29,6 @@
             <td class="px-6 py-4 text-center"><%= student.sle %></td>
             <td class="px-6 py-4 text-center"><%= student.phone %></td>
             <td class="px-6 py-4 text-center"><%= student.attempt_number %></td>
-            <td class="px-6 py-4 text-center"><%= button_to student.confirm,
-              method: POST %></td>
           </tr>
         <% end %>
       </tbody>
