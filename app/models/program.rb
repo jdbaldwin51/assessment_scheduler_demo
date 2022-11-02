@@ -9,4 +9,16 @@ class Program < ApplicationRecord
     'Sept 18th, 2023'       => 5,
     'Nov 27th, 2023'        => 6
   }
+
+  def full_name
+    {"DH" => "Dental Hygiene",
+    "BSN" => "Bachelors of Science-Nursing",
+    "PN" => "Practical Nursing",
+    "PN-EW" => "Practical Nursing-Evening&Weekend",
+    "DMS" => "Diagnostic Medical Sonography",
+    "CVS" => "Cardiovascular Sonography",
+    "PTA" => "Physical Therapy Assisting",
+    "RT" => "Respiratory Therapy",
+    "ST" => "Surgical Technology"}[self.name]
+  end
 end

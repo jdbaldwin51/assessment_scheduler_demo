@@ -6,17 +6,17 @@
 
   <p class="my-5">
     <strong class="inline-block  font-medium mb-1">Program:</strong>
-    <%= student.program_id %>
+    <%= student.program.full_name %>
   </p>
 
   <p class="my-5">
     <strong class="inline-block font-medium mb-1">Start date:</strong>
-    <%= student.start_date %>
+    <%= Program.start_dates.keys[student.start_date] %>
   </p>
 
   <p class="my-5">
     <strong class="inline-block font-medium mb-1">Advisor:</strong>
-    <%= student.advisor_id %>
+    <%= student.advisor.name %>
   </p>
 
   <p class="my-5">
