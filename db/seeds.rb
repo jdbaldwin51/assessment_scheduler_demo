@@ -4,6 +4,90 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 # require "date"
+
+
+
+advisors = %w(JB RN BM CJS OL JW VF KN-RE)
+def create_inv_code
+  nums = (0..9).to_a
+  nums.shuffle.take(7).join.to_i
+end
+
+
+Advisor.delete_all
+ActiveRecord::Base.connection.reset_pk_sequence!('advisors')
+
+advisors.each do |name|
+  Advisor.create!(name: name, email: "#{name}@concorde.edu", invitation_code: create_inv_code)
+end
+
+
+Program.delete_all
+ActiveRecord::Base.connection.reset_pk_sequence!('programs')
+
+
+
+Program.create!(
+              name: 'RT',
+              minimum_sle: 17,
+              minimum_hesi: 70
+)
+
+Program.create!(
+              name: 'ST',
+              minimum_sle: 17,
+              minimum_hesi: 65
+)
+
+Program.create!(
+              name: 'PN',
+              minimum_sle: 17,
+              minimum_hesi: 70,
+              minimum_hesi_section: 60
+)
+
+Program.create!(
+              name: 'PN-EW',
+              minimum_sle: 17,
+              minimum_hesi: 70,
+              minimum_hesi_section: 60
+)
+
+Program.create!(
+              name: 'PTA',
+              minimum_sle: 18,
+              minimum_hesi: 70
+)
+
+Program.create!(
+              name: 'DH',
+              minimum_sle: 20,
+              minimum_hesi: 70
+)
+
+Program.create!(
+              name: 'DMS',
+              minimum_sle: 21,
+              minimum_hesi: 75,
+              minimum_hesi_section: 65
+)
+
+Program.create!(
+              name: 'CVS',
+              minimum_sle: 21,
+              minimum_hesi: 75,
+              minimum_hesi_section: 65
+            )
+
+Program.create!(
+              name: 'BSN',
+              minimum_sle: 22,
+              minimum_hesi: 80,
+              minimum_hesi_section: 70
+)
+
+
+
 Student.delete_all
 ActiveRecord::Base.connection.reset_pk_sequence!('students')
 
@@ -16,8 +100,8 @@ class StudentSeed
     @sle = rand(17..28)
     @program = pick_program
     @start_date = rand(0..6)
-    @advisor = rand(1..9)
-    @phone = set_phone
+    @advisor = rand(1..8)
+    @phone = pick_phone
     @attempt_number = rand(0..6)
     @hesi_date = pick_date(date)
     @hesi_time = times_for_wday(@hesi_date)
@@ -26,19 +110,19 @@ class StudentSeed
   def pick_program
     case @sle
     when 17
-      [5, 6, 8, 9].sample
+      rand(1..4)
     when 18..19
-      [5, 6, 7, 8, 9].sample
+      rand(1..5)
     when 20
-      4
+      rand(1..6)
     when 21
-      rand(2..3)
+      rand(1..8)
     else
       rand(1..9)
     end
   end
 
-  def set_phone
+  def pick_phone
     "#{%w[816 913 660 785].sample}-555-#{rand(1000..9999)}"
   end
 

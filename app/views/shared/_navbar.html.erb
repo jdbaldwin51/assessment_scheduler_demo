@@ -21,16 +21,7 @@
 
         </div>
       </div>
-    <div class="inline justify-between relative ml-4">
 
-  <%= form_with(url: hesis_path, method: :get, data: {turbo_frame: "hesis"}) do |form| %>
-      <%= form.label :query, "Find hesi by date", class: "block mb-2" %>
-       <div class="flex space-x-3">
-
-          <%= form.date_field :query, class: "py-3 px-4 rounded border ring-0 focus:ring-4 focus:ring-blue-600 focus:shadow-none focus:border-blue-300 focus:outline-none" %>
-          <%= form.submit "Find Hesi by Date", class: "px-4 py-3 font-medium bg-blue-600 text-neutral-900 rounded inline-flex items-center cursor-pointer hover:bg-grey-400 focus:ring-4 ring-0 focus:ring-blue-100" %>
-          <% end %>
-       </div>
       <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
         <button type="button" class="rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
           <span class="sr-only">View notifications</span>
@@ -43,9 +34,7 @@
           <div class="right-auto  inline-flex relative ml-3 mr-5">
 
             <div>
-              <button type="button" class="flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800" >
-                <%= Advisor.all.sample.name %>
-              </button>
+
             </div>
 
             <div class="inline-flex ml-6">
